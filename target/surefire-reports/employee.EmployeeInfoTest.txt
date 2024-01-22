@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
-Test set: MathUtilsTest
+Test set: employee.EmployeeInfoTest
 -------------------------------------------------------------------------------
-Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.344 s - in MathUtilsTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s - in employee.EmployeeInfoTest

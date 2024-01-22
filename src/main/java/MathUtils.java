@@ -28,6 +28,18 @@ public class MathUtils {
 	}
 	
 	
+	public int divide(int x , int y) {
+		
+
+
+		
+		if(y !=0) {
+			return x / y;
+		}
+		throw new IllegalArgumentException("Cannot divide by zero");
+		
+	}
+	
 	public int add( int x, int y) {
 		
 		

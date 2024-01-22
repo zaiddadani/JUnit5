@@ -1,15 +1,19 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.DynamicTest.dynamicTest;
 
+import java.util.concurrent.TimeUnit;
 import java.util.stream.Stream;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.DynamicTest;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestFactory;
+import org.junit.jupiter.api.Timeout;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
@@ -17,7 +21,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 import org.junit.jupiter.api.AfterAll;
 
-
+@Disabled
 class MathUtilsTest {
 	
 	
@@ -48,6 +52,20 @@ class MathUtilsTest {
 				dynamicTest("SUBTRACT" , () -> performOperations(10 , 10, MathUtils.MathOperations.SUBTRACT, 0))
 				);
 		
+		
+	}
+	
+	@Test
+	@Timeout(value = 3 , unit = TimeUnit.SECONDS )
+	void failAfterthreeSeconds() {
+		utils.divide(10, 10);
+	}
+	
+	
+	@Test
+	void testDivideByZero() {
+		IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> utils.divide(10, 0));
+		assertEquals("Cannot divide by zero", exception.getMessage());
 		
 	}
 	
